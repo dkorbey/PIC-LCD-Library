@@ -5,7 +5,7 @@
  * File: lcd_lib.h
  * Author: Korbey
  * Comments: It's a LCD library for PIC microcontrollers (the one I used is PIC18F4585)
- * Revision history: version 2
+ * Revision history: version 2.1 
  */
 
 /* Includes ------------------------------------------------------------------*/
@@ -21,8 +21,9 @@
 
 /* Instruction register bit positions, see HD44780U data sheet ---------------*/
 #define LCD_DDRAM          7 /* DB7: set DD RAM address             */   
-#define LCD_START_LINE1 0x00 /**< DDRAM address of first char of line 1 */
-#define LCD_START_LINE2 0x40 /**< DDRAM address of first char of line 2 */
+#define LCD_CGRAM          6 /* DB6: set DD RAM address             */   
+#define LCD_START_LINE1 0x00 /* DDRAM address of first char of line 1 */
+#define LCD_START_LINE2 0x40 /* DDRAM address of first char of line 2 */
 
 /* Command Set ---------------------------------------------------------------*/
 // Instruction: Clear Display
@@ -75,7 +76,7 @@ void lcd_init(void);
  * 
  * @param data  8-bit Data or Instruction
  * @param rs    Register Select
- * @param m     1: Only High Bits   2: High and Low Bits
+ * @param m     1: Only High 4 Bits   2: High and Low 4 Bits
  */
 void lcd_write(uint8_t data, uint8_t rs, uint8_t m);
 
@@ -113,5 +114,8 @@ void lcd_clrscr(void);
  *  Move the cursor 1st line 1st bar
  */
 void lcd_home(void);
+
+
+void lcd_customchar(uint8_t location, uint8_t customChar[]);
 
 #endif

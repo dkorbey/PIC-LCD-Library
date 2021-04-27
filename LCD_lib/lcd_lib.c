@@ -43,7 +43,7 @@ void lcd_write(uint8_t data, uint8_t rs, uint8_t m)
 {      
     LCD_RS = rs;
     
-    uint8_t temp = data << 4;
+    uint8_t temp = (data << 4);
     uint8_t datas[] = {data,temp};
     
     for(int i = 0; i<m; i++) {
@@ -100,4 +100,23 @@ void lcd_home(void)
 {
     lcd_command(LCD_HOME);
     __delay_us(2000);
+}
+
+void lcd_customchar(uint8_t location, uint8_t customChar[])
+{
+    // Location should be between 0 and 7, because of that we need only 
+    // the right most 3 bits of the location
+    location &= 0x07;
+    
+    // Sets the CGRAM adress location as wanted
+    lcd_command((1 << LCD_CGRAM) + (location << 3));
+    
+    for(uint8_t i = 0; i<8; i++)
+    {
+        // Store custom char to memory line by line
+        lcd_putc(customChar[i]);
+    }
+    
+    // Set DDRAM address
+    lcd_command(1 << LCD_DDRAM);
 }

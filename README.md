@@ -1,4 +1,4 @@
-# LCD (Liquid Crystal Display) Library for PIC Microcontrollers
+# LCD (Liquid Crystal Display) Library <br> for PIC Microcontrollers
 
 This a 16x2 Character LCD Library using 4-bit communication for PIC microcontrollers (I used PIC18F4585).
 

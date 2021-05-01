@@ -31,7 +31,7 @@ I calculate the binary representations for most of the commands by arranging the
 
 ## My Circuit (PIC18F4585)
 
-Here is my circuit, in the software Anode and Cathode pins are not present but when you are connecting this pins I suggest you to put a current limiting resistor just in case there is no built in one.
+Here is my circuit, in the software Anode and Cathode pins for the backlight are not present but when you are connecting this pins I suggest you to put a current limiting resistor just in case there is no built in one.
 
 ![circuit](Images/lcd_connection.png)
 

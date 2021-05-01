@@ -35,4 +35,34 @@ Here is my circuit, in the software Anode and Cathode pins for the backlight are
 
 ![circuit](Images/lcd_connection.png)
 
+Example code shown in the picture:
+```
+uint8_t customChar1[8] = {
+	0b00000, 0b01010, 0b11111, 0b11111, 0b01110, 0b00100, 0b00000, 0b00000
+};
+
+void main(void) {
+        
+    TRISD = 0b00000000;
+    LATD = 0b00000000;
+    
+    lcd_init();
+    
+    lcd_customchar(0, customChar1);
+    
+    lcd_gotoxy(2,0);
+    lcd_puts("Hello World");
+    lcd_gotoxy(7,1);
+    lcd_puts("--");
+    lcd_putc(0x00);
+    lcd_puts("--");
+    
+    // Infinite Loop
+    while(1)
+    {
+
+    }
+    return;
+}
+```
 

@@ -36,7 +36,7 @@ Here is my circuit, in the software Anode and Cathode pins for the backlight are
 ![circuit](Images/lcd_connection.png)
 
 Example code shown in the picture:
-```
+```ruby
 uint8_t customChar1[8] = {
 	0b00000, 0b01010, 0b11111, 0b11111, 0b01110, 0b00100, 0b00000, 0b00000
 };

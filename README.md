@@ -1,6 +1,6 @@
 # LCD (Liquid Crystal Display) Library for PIC Microcontrollers
 
-This a 16x2 Character LCD Library using 4-bit communication for PIC microcontrollers (I used 18F4585).
+This a 16x2 Character LCD Library using 4-bit communication for PIC microcontrollers (I used PIC18F4585).
 
 For designing custom character: https://omerk.github.io/lcdchargen/
 

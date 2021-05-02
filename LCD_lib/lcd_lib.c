@@ -19,32 +19,38 @@ void lcd_init(void)
     /* Look datasheet page 46 */
     
     // required by display controller to allow power to stabilize
-    __delay_ms(45);
+    __delay_ms(50);
     
     lcd_write(FUNCTION_SET_8_BIT,0,1);
-    __delay_us(4500); // wait min 4.1ms
+    __delay_us(4500); // wait more than 4.1ms(4100us)
     
     lcd_write(FUNCTION_SET_8_BIT,0,1);
-    __delay_us(250); // wait min 4.1ms
+    __delay_us(250); // wait more than 100us
     
+    lcd_write(FUNCTION_SET_8_BIT,0,1);
+    
+    // Set to 4 bit interface
     lcd_write(FUNCTION_SET_4_BIT,0,1);
     
+    // 4 bit interface, 2 lines, 5x8 font
     lcd_command(FUNCTION_SET_4_BIT);
     
-    // turn the display on with no cursor or blinking default
+    // Turn the display on with no cursor or blinking default
     lcd_command(LCD_ON);
     
+    // Clear Screen
     lcd_clrscr();
     
+    // Cursor Increment Forward  
     lcd_command(ENTRY_MODE_SET);
 }
 
 void lcd_write(uint8_t data, uint8_t rs, uint8_t m)
 {      
     LCD_RS = rs;
+    LCD_E = 0;
     
-    uint8_t temp = (data << 4);
-    uint8_t datas[] = {data,temp};
+    uint8_t datas[] = {data,data << 4};
     
     for(int i = 0; i<m; i++) {
         // Sending the high bits
@@ -53,10 +59,11 @@ void lcd_write(uint8_t data, uint8_t rs, uint8_t m)
         LCD_D5 = ((datas[i] >> 5) & 0x01);
         LCD_D4 = ((datas[i] >> 4) & 0x01);
         
+        __delay_us(1);
         LCD_E = 1;
         __delay_us(1);
          LCD_E = 0;
-        __delay_us(100);    
+        __delay_us(750);    
     }
 }
 

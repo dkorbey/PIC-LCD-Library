@@ -8,9 +8,9 @@ For designing custom character: https://omerk.github.io/lcdchargen/
 
 ## LCD Pinout
 
-In the table below you can see where I connect each pin on my PIC, if you want to connect them to other pins you should change the Pins Section (Line 18) of the [lcd_lib.h](lcd_lib.h). file
-
 ![LCD pinout](Images/lcd_pinout.png)
+
+In the table below you can see where I connect each pin on my PIC, if you want to connect them to other pins you should change the Pins Section (Line 18) of the [lcd_lib.h](lcd_lib.h). file
 
 | PIN NAME             | FUNCTION                                                                                                                                                    | PIN                                              |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|

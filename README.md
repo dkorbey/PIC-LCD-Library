@@ -2,25 +2,27 @@
 
 This a 16x2 Character LCD Library using 4-bit communication for PIC microcontrollers (I used PIC18F4585).
 
-I used a 16MHz external crsytal as a clock source for my PIC if you use a different frequency you can change it from the [lcd_lib.h](lcd_lib.h) file line 16.
+I used a 16MHz external crsytal as a clock source for my PIC if you use a different frequency you can change it from the [lcd_lib.h](lcd_lib.h) file Crystal Frequency section (Line 16).
 
 For designing custom character: https://omerk.github.io/lcdchargen/
 
 ## LCD Pinout
 
+In the table below you can see where I connect each pin on my PIC, if you want to connect them to other pins you should change the Pins Section (Line 18) of the [lcd_lib.h](lcd_lib.h). file
+
 ![LCD pinout](Images/lcd_pinout.png)
 
-| PIN NAME             | FUNCTION                                                                                                                                                           |
-|:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Vss                  | Ground                                                                                                                                                             |
-| Vdd                  | 5V                                                                                                                                                                 |
-| Ve                   | Contrast Control                                                                                                                                                   |
-| RS (Register Select) | 0: For sending instructions<br>1: For sending data that we want to display                                                                                     |
-| RW (Read/Write)      | 0: Write instructions or data to the LCD<br>1: Read data from the LCD<br><br>We can connect this to the ground if we only planning to do writing operation. |
-| E (Enable)           | Loads the data present in the data pins to the LCD on the falling edges.                                                                                    |
-| D0:D7 (Data pins)    | In 8-bit communication mode, we use all 8 of them (D7:D0).<br>In 4-bit communication mode, we use only 4 of them (D7:D4).                                      |
-| A                    | Anode pin for the backlight. (+5V)                                                                                                                                 |
-| K                    | Cathode pin for the backlight. (Ground)                                                                                                                            |                                                                                                                                      |                                                                                                                     |
+| PIN NAME             | FUNCTION                                                                                                                                                    | PIN                                              |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| Vss                  | Ground                                                                                                                                                      |                         -                        |
+| Vdd                  | 5V                                                                                                                                                          |                         -                        |
+| Ve                   | Contrast Control                                                                                                                                            |                                                  |
+| RS (Register Select) | 0: For sending instructions<br>1: For sending data that we want to display                                                                                  |                                                  |
+| RW (Read/Write)      | 0: Write instructions or data to the LCD<br>1: Read data from the LCD<br><br>We can connect this to the ground if we only planning to do writing operation. |                       PinD2                      |
+| E (Enable)           | Loads the data present in the data pins to the LCD on the falling edges.                                                                                    |                       PinD3                      |
+| D0:D7 (Data pins)    | In 8-bit communication mode, we use all 8 of them (D7:D0).<br>In 4-bit communication mode, we use only 4 of them (D7:D4).                                   | D7: PinD7<br>D6: PinD6<br>D5: PinD5<br>D4: PinD4 |
+| A                    | Anode pin for the backlight. (+5V)                                                                                                                          |                                                  |
+| K                    | Cathode pin for the backlight. (Ground)                                                                                                                     |                                                  |
 
 ## LCD HD44780 Instruction List
 

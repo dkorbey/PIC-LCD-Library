@@ -15,6 +15,15 @@
 // Crystal Frequency 
 #define _XTAL_FREQ  16000000
 
+/* Pins ----------------------------------------------------------------------*/
+#define LCD_D7      LATDbits.LATD7
+#define LCD_D6      LATDbits.LATD6
+#define LCD_D5      LATDbits.LATD5
+#define LCD_D4      LATDbits.LATD4
+#define LCD_RS      LATDbits.LATD2
+// RW is connected to the ground
+#define LCD_E       LATDbits.LATD3
+
 // LCD Dimensions (Not used for now)
 #define NB_LINES    2                   // Number of display lines
 #define NB_COL      16                  // Number of characters per line
@@ -49,15 +58,6 @@
 #define FUNCTION_SET_8_BIT      0x30    // 0b00110000
 #define ENTRY_MODE_SET          0x06    // Cursor Increment Forward  
 
-/* Pins ----------------------------------------------------------------------*/
-#define LCD_D7      LATDbits.LATD7
-#define LCD_D6      LATDbits.LATD6
-#define LCD_D5      LATDbits.LATD5
-#define LCD_D4      LATDbits.LATD4
-#define LCD_RS      LATDbits.LATD2
-// RW is connected to the ground
-#define LCD_E       LATDbits.LATD3
-
 /* Functions with define tag--------------------------------------------------*/
 
 // Clear Screen and Home Functions
@@ -76,7 +76,8 @@ void lcd_init(void);
  * 
  * @param data  8-bit Data or Instruction
  * @param rs    Register Select
- * @param m     1: Only High 4 Bits   2: High and Low 4 Bits
+ * @param m     1: Only High 4 Bits (I add this parameter to use in init process)
+ *              2: High and Low 4 Bits
  */
 void lcd_write(uint8_t data, uint8_t rs, uint8_t m);
 

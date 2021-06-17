@@ -16,13 +16,13 @@ In the table below you can see where I connect each pin on my PIC, if you want t
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
 | Vss                  | Ground                                                                                                                                                      |                         -                        |
 | Vdd                  | 5V                                                                                                                                                          |                         -                        |
-| Ve                   | Contrast Control                                                                                                                                            |                                                  |
-| RS (Register Select) | 0: For sending instructions<br>1: For sending data that we want to display                                                                                  |                                                  |
-| RW (Read/Write)      | 0: Write instructions or data to the LCD<br>1: Read data from the LCD<br><br>We can connect this to the ground if we only planning to do writing operation. |                       PinD2                      |
+| Ve                   | Contrast Control                                                                                                                                            |                         -                        |
+| RS (Register Select) | 0: For sending instructions<br>1: For sending data that we want to display                                                                                  | PinD2                                            |
+| RW (Read/Write)      | 0: Write instructions or data to the LCD<br>1: Read data from the LCD<br><br>We can connect this to the ground if we only planning to do writing operation. |                         -                        |
 | E (Enable)           | Loads the data present in the data pins to the LCD on the falling edges.                                                                                    |                       PinD3                      |
 | D0:D7 (Data pins)    | In 8-bit communication mode, we use all 8 of them (D7:D0).<br>In 4-bit communication mode, we use only 4 of them (D7:D4).                                   | D7: PinD7<br>D6: PinD6<br>D5: PinD5<br>D4: PinD4 |
-| A                    | Anode pin for the backlight. (+5V)                                                                                                                          |                                                  |
-| K                    | Cathode pin for the backlight. (Ground)                                                                                                                     |                                                  |
+| A                    | Anode pin for the backlight. (+5V)                                                                                                                          |                         -                        |
+| K                    | Cathode pin for the backlight. (Ground)                                                                                                                     |                         -                        |
 
 ## LCD HD44780 Instruction List
 

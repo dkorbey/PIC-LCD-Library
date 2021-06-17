@@ -1,6 +1,7 @@
 # LCD (Liquid Crystal Display) Library <br> for PIC Microcontrollers
 
 This a 16x2 Character LCD Library using 4-bit communication for PIC microcontrollers (I used PIC18F4585).
+I used a 16MHz external crsytal as a clock source for my PIC if you use a different frequency you can change it from the [lcd_lib.h](lcd_lib.h) file line 16.
 
 For designing custom character: https://omerk.github.io/lcdchargen/
 

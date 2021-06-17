@@ -28,7 +28,7 @@ In the table below you can see where I connect each pin on my PIC, if you want t
 
 This table shows the instructions we can send to the HD44780 chip for controlling the LCD and it is taken from the HD44780 datasheet page 24 and 25. 
 
-I calculate the binary representations for most of the commands by arranging the special bits accordingly and represent them with hexadecimal, in the [lcd_lib.h](lcd_lib.h) file under the Command Set section (Line 28). And using the `lcd_command` function we can send this commands to the LCD in 4 bit communication mode. 
+I calculate the binary representations for most of the commands by arranging the special bits accordingly and represent them with hexadecimal, in the [lcd_lib.h](lcd_lib.h) file under the Command Set section (Line 38). And using the `lcd_command` function we can send this commands to the LCD in 4 bit communication mode. 
 
 ![hd44780 instructions 1](Images/hd44780_instructions_1.png)
 ![hd44780 instructions 2](Images/hd44780_instructions_2.png)
